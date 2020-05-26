@@ -45,17 +45,14 @@ section{
 
 section h2{
 	font-size: 3em;
-	display: block;
-	padding-bottom: .5em;
-	border-bottom: 1px solid #ccc;
-	margin-bottom: .5em;
+	display: inline-block;
+	margin-bottom: .4em;
 }
 
 table{
 	width: 100%;
 	margin-bottom : .5em;
     table-layout: fixed;
-
 }
 
 td, th {
@@ -96,6 +93,10 @@ label{
 	padding: 10px 0px;
 }
 
+.grupo input {
+	border-radius: 5px;
+}
+
 button{
 	padding: .5em 2em;
 	border: 0;
@@ -111,7 +112,7 @@ button{
     display: block;
     clear: both;
     margin: 10px 0px;
-
+	border-radius: 10px;
 }
 
 button:active{
@@ -143,4 +144,25 @@ button[disabled=disabled], button:disabled {
 
 .mensagens-erro li {
 	color: red;
+}
+
+.fadeOut {
+	opacity: 0;
+	transition: 0.5s;
+}
+
+.filtro {
+	width: 200px;
+	height: 35px;
+	margin-bottom: 15px;
+	border-radius: 5px;
+	float: right;
+	position: relative;
+	transform: translateY(20%);
+	text-align: center;
+}
+
+.cabeçalho {
+	border-bottom: 1px solid #ccc;
+	margin-bottom: 20px;
 }

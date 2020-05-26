@@ -22,7 +22,7 @@ pacientes.forEach (paciente => {
     } else if (!alturaValidate.isValid) {
         tdImc.textContent = alturaValidate.error;
         paciente.classList.add("paciente-invalido");
-        
+
     } else {
         var imc = calculaImc(peso, altura); 
         tdImc.textContent = imc;

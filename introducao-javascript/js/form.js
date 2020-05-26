@@ -13,9 +13,10 @@ botaoAdicionar.addEventListener("click", function(event) {
         var tabela = document.querySelector("#tabela-pacientes");
         tabela.appendChild(pacienteTr);
 
+        document.querySelector(".mensagens-erro").innerHTML = "";
         form.reset();
     } else {
-        alert(validatePaciente.error);
+        exibeMensagensDeErro(validatePaciente.errors);
     }
 
 });
@@ -58,18 +59,33 @@ function validaPacienteForm(paciente) {
 
     var data = {
         isValid: false,
-        error: ""
+        errors: []
     }
 
     var peso = validaPeso(paciente.peso);
     var altura = validaAltura(paciente.altura);
-    
-    if (peso.isValid && altura.isValid) {
-        data.isValid = true;
-    } else if (!peso.isValid) {
-        data.error = peso.error;
+
+    if (paciente.nome == "" || paciente.peso == "" || paciente.altura == "" || paciente.gordura == "") {
+        data.errors[0] = "Todos os campos são obrigatórios!"
     } else {
-        data.error = altura.error;
+        if (peso.isValid && altura.isValid) {
+            data.isValid = true;
+        } else {
+            data.errors[0] = peso.error;
+            data.errors[1] = altura.error;
+        }
     }
     return data;
+}
+
+function exibeMensagensDeErro(errors) {
+    var ul = document.querySelector(".mensagens-erro");
+    ul.innerHTML = "";
+
+    errors.forEach(error => {
+        var li = document.createElement("li");
+        li.textContent = error;
+        ul.appendChild(li);
+    });
+
 }

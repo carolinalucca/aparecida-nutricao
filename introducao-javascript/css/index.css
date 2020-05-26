@@ -91,7 +91,7 @@ label{
 }
 
 .grupo{
-	width: 32%;
+	width: 100%;
 	display: inline-block;
 	padding: 10px 0px;
 }
@@ -131,4 +131,12 @@ button[disabled=disabled], button:disabled {
 
 .campo-invalido{
 	border: 1px solid red;
+}
+
+.paciente-invalido {
+	background-color: lightcoral;
+}
+
+#titulo-form {
+	margin-top: 20px;
 }
